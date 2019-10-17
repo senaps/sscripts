@@ -1,9 +1,10 @@
 #!/bin/bash
 
 t=true
+PORT=$(echo -e "22 \n 9022 \n 9023" | dmenu -i -p "on which port?")
 while $t
 do
-	ssh $1
+	ssh $1 -p $PORT
 	if [[ $? == 0 ]]; then
 		t=false
 	fi
